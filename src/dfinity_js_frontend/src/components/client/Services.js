@@ -8,6 +8,8 @@ import { NotificationSuccess, NotificationError } from "../utils/Notifications";
 import {
   getServices as getServiceList,
   bookAppointment,
+  getAppointments as getAppointmentList,
+  updateAppointment,
 } from "../../utils/palor";
 import {
   getClientByPrincipal,
@@ -16,6 +18,7 @@ import {
 } from "../../utils/client";
 import Cservice from "./Service";
 import User from "./User";
+import Appointment from "./Appointment";
 
 
 
@@ -24,6 +27,7 @@ const Cservices = () => {
   const [client, setClient] = useState({});
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(false);
+   const [appointments, setAppointments] = useState([]);
  
 
 
@@ -77,6 +81,32 @@ const Cservices = () => {
    }
  };
 
+  const getAppointments = useCallback(async () => {
+    try {
+      setLoading(true);
+      setAppointments(await getAppointmentList());
+    } catch (error) {
+      console.log({ error });
+    } finally {
+      setLoading(false);
+    }
+  });
+
+  const update = async (UpdateAppointmentInfo) => {
+    try {
+      setLoading(true);
+      updateAppointment(UpdateAppointmentInfo).then((resp) => {
+        getAppoint();
+      });
+      toast(<NotificationSuccess text="Appointment updated successfully." />);
+    } catch (error) {
+      console.log({ error });
+      toast(<NotificationError text="Failed to update appointment." />);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
 
 
@@ -84,15 +114,40 @@ const Cservices = () => {
    getAllClients();
    getClient();
    getServices();
+   getAppointments();
  }, []);
 
   return (
     <>
       {!loading ? (
         <>
+          <div className=" flex w-full">
+            <div>
+              <h1>Client Info</h1>
+              {clients.map((_client, index) => (
+                <User
+                  key={index}
+                  client={{
+                    ..._client,
+                  }}
+                />
+              ))}
+            </div>
+            <div>
+              <h1>Appointment</h1>
+              {appointments.map((_appointmentInfo, index) => (
+                <Appointment
+                  key={index}
+                  appointmentInfo={{
+                    ..._appointmentInfo,
+                  }}
+                  update={update}
+                />
+              ))}
+            </div>
+          </div>
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h1 className="fs-4 fw-bold mb-0">Services offered</h1>
-           
           </div>
           <Row xs={1} sm={2} lg={3} className="">
             {services.map((_cservice, index) => (
@@ -105,17 +160,6 @@ const Cservices = () => {
               />
             ))}
           </Row>
-          <div>
-          {clients.map((_client, index) => (
-            <User
-              key={index}
-              client={{
-                ..._client,
-              }}
-           
-            />
-          ))}
-          </div>
         </>
       ) : (
         <Loader />

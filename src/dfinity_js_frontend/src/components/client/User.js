@@ -9,7 +9,7 @@ const User = ({ client }) => {
 
   return (
     <Col>
-      <Card className=" h-100 position-relative">
+      <Card className=" ">
         <Card.Body className="d-flex  flex-column">
           <Stack>
             <div className="">

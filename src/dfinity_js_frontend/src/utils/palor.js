@@ -105,4 +105,7 @@ export async function getAppointment(appointmentId) {
   }
 }
 
+export async function updateAppointment(UpdateAppointmentInfo) {
+  return window.canister.beautyPalor.updateAppointment(UpdateAppointmentInfo);
+}
 

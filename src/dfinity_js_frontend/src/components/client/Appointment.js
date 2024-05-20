@@ -1,15 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Card, Col, Badge, Stack } from "react-bootstrap";
+import UpdateAppointment from "../palor/Update";
 
+const Appointment = ({ appointmentInfo, update }) => {
+  const { appointmentId, serviceId, serviceName, time } = appointmentInfo;
 
-const Appointment = ({ appointmentInfo  }) => {
-  const { serviceId, serviceName, clientName , clientPhoneNo, time } = appointmentInfo;
-
-
+  const triggerUpdate = (serviceName, time) => {
+    update({
+      serviceName,
+      time,
+      id: appointmentId,
+    });
+  };
 
   return (
-    <Col md={4} className="mb-4">
+    <Col className="">
       <Card className=" position-relative">
         <Card.Body>
           <>
@@ -19,29 +25,19 @@ const Appointment = ({ appointmentInfo  }) => {
             </span>
             <span className="text-blue-700 flex space-x-3">
               Service Name:
-              <p className="text-black">{serviceName}</p>
-            </span>
-
-            <span className="text-blue-700 flex space-x-3">
-              Client Name:
-              <p className="text-black">{clientName}</p>
-            </span>
-            <span className="text-blue-700 flex space-x-3">
-              Client Phone No:
-              <p className="text-black">{clientPhoneNo}</p>
+              <p className="text-black">{time}</p>
             </span>
             <span className="text-blue-700 flex space-x-3">
               Time:
-              <p className="text-black">{time}</p>
+              <p className="text-black">{serviceName}</p>
             </span>
           </>
-
+          <UpdateAppointment update={triggerUpdate} />
         </Card.Body>
       </Card>
     </Col>
   );
 };
-
 
 Appointment.propTypes = {
   appointmentInfo: PropTypes.object.isRequired,
