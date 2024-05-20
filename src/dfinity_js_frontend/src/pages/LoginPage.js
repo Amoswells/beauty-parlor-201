@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   return (
-    <div className=' flex justify-center items-center'>
-      <div className="">
+    <div className=' flex justify-center items-center w-full'>
+      <div >
         <h1>Login Page</h1>
         <Link
           to="/users?canisterId=br5f7-7uaaa-aaaaa-qaaca-cai"
