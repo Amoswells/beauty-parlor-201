@@ -37,15 +37,15 @@ const Client = Record({
   id: text,
   principal: Principal,
   name: text,
-  phoneNo: text,
+  phoneNumber: text,
   email: text,
   address: text,
-  appointment: Vec(text),
+  appointments: Vec(text),
 });
 
 const ClientPayload = Record({
   name: text,
-  phoneNo: text,
+  phoneNumber: text,
   email: text,
   address: text,
 });
@@ -54,7 +54,7 @@ const Professional = Record({
   id: text,
   principal: Principal,
   name: text,
-  phoneNo: text,
+  phoneNumber: text,
   email: text,
   address: text,
   appointments: Vec(text),
@@ -62,7 +62,7 @@ const Professional = Record({
 
 const ProfessionalPayload = Record({
   name: text,
-  phoneNo: text,
+  phoneNumber: text,
   email: text,
   address: text,
 });
@@ -88,11 +88,11 @@ const BookingPayload = Record({
 
 const AppointmentInfo = Record({
   appointmentId: text,
-  created_at: nat64,
+  createdAt: nat64,
   serviceId: text,
   clientId: text,
   clientName: text,
-  clientPhoneNo: text,
+  clientPhoneNumber: text,
   serviceName: text,
   time: text,
 });
@@ -135,7 +135,7 @@ export default Canister({
     const client = {
       id: uuidv4(),
       principal: ic.caller(),
-      appointment: [],
+      appointments: [],
       ...payload,
     };
 
@@ -233,20 +233,17 @@ export default Canister({
 
       const appointment = {
         appointmentId: booking.id,
-        created_at: ic.time(),
+        createdAt: ic.time(),
         serviceId: booking.serviceId,
         clientId: booking.clientId,
         time: booking.time,
         serviceName: service.name,
         clientName: client.name,
-        clientPhoneNo: client.phoneNo,
+        clientPhoneNumber: client.phoneNumber,
       };
 
-      ClientsStorage.insert(client.id, {
-        ...client,
-        appointment: [appointment.appointmentId],
-      });
-
+      client.appointments.push(appointment.appointmentId);
+      ClientsStorage.insert(client.id, client);
       AppointmentsStorage.insert(appointment.appointmentId, appointment);
 
       return Ok(appointment);
@@ -303,14 +300,10 @@ export default Canister({
 });
 
 globalThis.crypto = {
-  // @ts-ignore
-  getRandomValues: () => {
-    let array = new Uint8Array(32);
-
+  getRandomValues: (array) => {
     for (let i = 0; i < array.length; i++) {
       array[i] = Math.floor(Math.random() * 256);
     }
-
     return array;
   },
 };
