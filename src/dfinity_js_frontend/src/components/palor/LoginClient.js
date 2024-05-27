@@ -3,11 +3,11 @@ import { createClient } from "../../utils/client";
 
 const SinginClient = ({ fetchUser }) => {
   const [name, setName] = useState("");
-  const [phoneNo, setPhoneNo] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
 
-  const isFormFilled = () => name && phoneNo && email && address;
+  const isFormFilled = () => name && phoneNumber && email && address;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const SinginClient = ({ fetchUser }) => {
     try {
       await createClient({
         name,
-        phoneNo,
+        phoneNumber,
         email,
         address,
       }).then((res) => {
@@ -43,9 +43,9 @@ const SinginClient = ({ fetchUser }) => {
                 <label>Phone Number</label>
                 <input
                 type="number"
-                value={phoneNo}
+                value={phoneNumber}
                 className=" w-[90%]"
-                onChange={(e) => setPhoneNo(e.target.value)}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 />
             </div>
             <div className=" flex flex-col text-[1.2rem] pb-2 space-y-2">

@@ -4,7 +4,7 @@ import { Card, Col, Badge, Stack } from "react-bootstrap";
 
 
 const Appointment = ({ appointmentInfo  }) => {
-  const { serviceId, serviceName, clientName , clientPhoneNo, time } = appointmentInfo;
+  const { serviceId, serviceName, clientName , clientPhoneNumber, time } = appointmentInfo;
 
 
 
@@ -28,7 +28,7 @@ const Appointment = ({ appointmentInfo  }) => {
             </span>
             <span className="text-blue-700 flex space-x-3">
               Client Phone No:
-              <p className="text-black">{clientPhoneNo}</p>
+              <p className="text-black">{clientPhoneNumber}</p>
             </span>
             <span className="text-blue-700 flex space-x-3">
               Time:
