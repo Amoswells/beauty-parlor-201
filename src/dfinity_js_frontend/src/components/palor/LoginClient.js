@@ -30,6 +30,7 @@ const SinginClient = ({ fetchUser }) => {
     <div className=" bg-slate-200 fixed flex justify-center items-center w-full h-[100%]">
       <div className=" w-[50%] border-4 border-black p-2 pl-2">
         <form>
+          <h1 className=" text-black text-[1.5rem] text-center">Sing up</h1>
           <div className=" flex flex-col text-[1.2rem] pb-2 space-y-2 relative">
             <label>Name</label>
             <input

@@ -8,15 +8,15 @@ const LoginPage = () => {
         <h1>Login Page</h1>
         <Link
           to="/users?canisterId=br5f7-7uaaa-aaaaa-qaaca-cai"
-          className="justify-content-start mr-4 py-2 px-3 my-2 bg-secondary text-white rounded-pill "
+          className=" mr-4 py-2 px-3 my-2 bg-secondary text-white "
         >
-          client
+          Client Page
         </Link>
         <Link
           to="/professional?canisterId=br5f7-7uaaa-aaaaa-qaaca-cai"
-          className="justify-content-start mr-4 py-2 px-3 my-2 bg-secondary text-white rounded-pill "
+          className=" mr-4 py-2 px-3 my-2 bg-secondary text-white "
         >
-          Professional
+          Professional Page
         </Link>
       </div>
     </div>

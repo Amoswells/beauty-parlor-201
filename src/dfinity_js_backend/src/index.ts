@@ -40,7 +40,7 @@ const Client = Record({
   phoneNumber: text,
   email: text,
   address: text,
-  appointment: Vec(text),
+  appointments: Vec(text),
 });
 
 const ClientPayload = Record({
@@ -86,7 +86,7 @@ const AppointmentInfo = Record({
   serviceId: text,
   clientId: text,
   clientName: text,
-  clientPhoneNo: text,
+  clientPhoneNumber: text,
   serviceName: text,
   ProfessionalName: text,
   time: text,
@@ -249,7 +249,7 @@ export default Canister({
         time: booking.time,
         serviceName: service.name,
         clientName: client.name,
-        clientPhoneNo: client.phoneNo,
+        clientPhoneNumber: client.phoneNumber,
         ProfessionalName: professional.name,
       };
 

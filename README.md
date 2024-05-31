@@ -1,3 +1,7 @@
+Certainly! Here's the updated documentation with the additional instructions integrated:
+
+---
+
 # Beauty Parlor Management System
 
 ## Overview
@@ -10,14 +14,13 @@ This is a comprehensive management system for a beauty parlor, built on the Inte
 
 - **Service**: Represents a beauty parlor service with properties like `id`, `name`, `description`, and `price`.
 - **ServicePayload**: Used for creating or updating a service with necessary properties.
-- **Client**: Represents a client with properties like `id`, `principal`, `name`, `phoneNo`, `email`, `address`, and `appointment`.
+- **Client**: Represents a client with properties like `id`, `principal`, `name`, `phoneNumber`, `email`, `address`, and `appointment`.
 - **ClientPayload**: Used for creating or updating a client with necessary properties.
-- **Professional**: Represents a professional with properties like `id`, `principal`, `name`, `phoneNo`, `email`, `address`, and `appointments`.
+- **Professional**: Represents a professional with properties like `id`, `principal`, `name`, `phoneNumber`, `email`, `address`, and `appointments`.
 - **ProfessionalPayload**: Used for creating or updating a professional with necessary properties.
-- **Status**: Variant type representing different appointment statuses (`Pending`, `Completed`, `Cancelled`).
 - **Booking**: Represents a booking with properties like `id`, `serviceId`, `clientId`, and `time`.
 - **BookingPayload**: Used for creating or updating a booking with necessary properties.
-- **AppointmentInfo**: Detailed information about an appointment including `appointmentId`, `created_at`, `serviceId`, `clientId`, `clientName`, `clientPhoneNo`, `serviceName`, and `time`.
+- **AppointmentInfo**: Detailed information about an appointment including `appointmentId`, `created_at`, `serviceId`, `clientId`, `clientName`, `clientPhoneNumber`, `serviceName`, `time` and `professionalName`.
 - **Error**: Variant type representing different error scenarios (`NotFound`, `InvalidPayload`).
 
 ### 2. Storage
@@ -32,6 +35,7 @@ This is a comprehensive management system for a beauty parlor, built on the Inte
 - **createService**: Creates a new service.
 - **getServices**: Retrieves all services.
 - **getService**: Retrieves a service by its ID.
+- **deleteService**: Deletes a service by ID.
 - **createClient**: Creates a new client.
 - **getClients**: Retrieves all clients.
 - **getClientByPrincipal**: Retrieves a client by their principal.
@@ -43,6 +47,7 @@ This is a comprehensive management system for a beauty parlor, built on the Inte
 - **bookAppointment**: Books a new appointment.
 - **getAppointments**: Retrieves all appointments.
 - **getAppointment**: Retrieves an appointment by its ID.
+- **updateAppointment**: Updates appointment details.
 
 ### 4. Helper Functions
 
@@ -52,11 +57,33 @@ This is a comprehensive management system for a beauty parlor, built on the Inte
 
 - Functions return `Result` types to handle success or different error scenarios, ensuring robust error management.
 
-## Things to be explained in the course
+## User Instructions
+
+### Navigating the Application
+
+Upon loading the page, you will be presented with two options: **Clients Page** and **Professionals Page**.
+
+### For Clients
+
+1. **Sign Up**: Click on the **Clients Sign Up** button.
+2. **Fill the Form**: You will be redirected to a registration form. Enter your name, phone number, address, and email address.
+3. **Login**: After filling out the form, press the **Login** button.
+4. **Access Services**: Once logged in, you will be able to view the list of available services and book appointments as needed.
+
+### For Professionals
+
+1. **Sign Up**: Click on the **Professionals Sign Up** button.
+2. **Fill the Form**: You will be redirected to a registration form. Enter your name, email address, phone number, and address.
+3. **Login**: After filling out the form, press the **Login** button.
+4. **Manage Services**: Once logged in, you will be able to add new services and view booked appointments.
+
+---
+
+## Things to be Explained in the Course
 
 1. **Internet Identity**: More details here: <https://internetcomputer.org/internet-identity>
 2. **Principal, Identity, Address**: Detailed explanation: <https://internetcomputer.org/internet-identity>
-3. **Canister-to-canister communication**: Understanding multi-canister development: <https://medium.com/icp-league/explore-backend-multi-canister-development-on-ic-680064b06320>
+3. **Canister-to-canister Communication**: Understanding multi-canister development: <https://medium.com/icp-league/explore-backend-multi-canister-development-on-ic-680064b06320>
 
 ## How to Deploy Canisters Implemented in the Course
 
@@ -85,3 +112,5 @@ dfx deploy frontend
 ```
 
 Ensure both the backend and frontend canisters are correctly deployed for full functionality.
+
+---

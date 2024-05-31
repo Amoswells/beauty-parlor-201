@@ -5,7 +5,7 @@ import { Card, Col, Stack } from "react-bootstrap";
 //import UpdateUser from "./UpdateUser";
 
 const User = ({ client }) => {
-  const { id, name, phoneNumber, email, address, appointment } = client;
+  const { id, name } = client;
 
   return (
     <Col>
@@ -17,10 +17,7 @@ const User = ({ client }) => {
             </div>
             <Card.Title>Name: {name}</Card.Title>
           </Stack>
-          <Card.Text>Phone No: {phoneNumber}</Card.Text>
-          <Card.Text>Email: {email}</Card.Text>
-          <Card.Text>Address: {address}</Card.Text>
-          <Card.Text>Appointment:{appointment}</Card.Text>
+
          
         </Card.Body>
       </Card>

@@ -4,7 +4,7 @@ import { Card, Col, Badge, Stack } from "react-bootstrap";
 import UpdateAppointment from "../palor/Update";
 
 const Appointment = ({ appointmentInfo, update }) => {
-  const { appointmentId, serviceId, serviceName, professionalName time } = appointmentInfo;
+  const { appointmentId, serviceId, serviceName, professionalName,time } = appointmentInfo;
 
   const triggerUpdate = (serviceName, time) => {
     update({

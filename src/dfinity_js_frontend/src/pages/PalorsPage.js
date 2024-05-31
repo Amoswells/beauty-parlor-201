@@ -22,8 +22,9 @@ const PalorsPage = () => {
       setLoading(true);
       setProfessional(
         await getProfessionalByPrincipal().then(async (res) => {
-          console.log(res);
+         
           return res.Ok;
+           console.log(res);
         })
       );
       setLoading(false);

@@ -22,8 +22,9 @@ const UsersPage = () => {
       setLoading(true);
       setClient(
         await getClientByPrincipal().then(async (res) => {
-          console.log(res);
+        
           return res.Ok;
+            console.log(res);
         })
       );
       setLoading(false);
