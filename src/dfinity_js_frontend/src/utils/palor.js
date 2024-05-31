@@ -78,7 +78,17 @@ export async function getProfessional(professionalId) {
 
 
 export async function bookAppointment(Booking) {
-  return window.canister.beautyPalor.bookAppointment(Booking);
+  try {
+    const result = await window.canister.beautyPalor.bookAppointment(Booking);
+
+    if (result.Ok) {
+      window.location.reload();
+    } else {
+      console.error(result.Err);
+    }
+  } catch (error) {
+    console.error("Error booking appointment:", error);
+  }
 }
 
 export async function getAppointments() {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { toast } from "react-toastify";
 import Loader from "../utils/Loader";
+import { Row } from "react-bootstrap";
 
 import { NotificationSuccess, NotificationError } from "../utils/Notifications";
 
@@ -96,7 +97,7 @@ const Pservices = () => {
               <AddService save={addService} />
              
             </div>
-            <div className=" w-[350px] border">
+          <Row xs={1} sm={2} lg={3} className="">
               {services.map((_service, index) => (
                 <Pservice
                   key={index}
@@ -105,7 +106,7 @@ const Pservices = () => {
                   }}
                 />
               ))}
-            </div>
+            </Row>
             <div>
               <Appointments />
             </div>

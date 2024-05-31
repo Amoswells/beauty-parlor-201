@@ -121,9 +121,9 @@ const Cservices = () => {
     <>
       {!loading ? (
         <>
-          <div className=" flex w-full">
+          <div className=" flex flex-col w-full">
             <div>
-              <h1>Client Info</h1>
+              <h4>Client Info</h4>
               {clients.map((_client, index) => (
                 <User
                   key={index}
@@ -134,7 +134,8 @@ const Cservices = () => {
               ))}
             </div>
             <div>
-              <h1>Appointment</h1>
+              <h1>Appointments</h1>
+              <Row xs={1} sm={2} lg={3} className="">
               {appointments.map((_appointmentInfo, index) => (
                 <Appointment
                   key={index}
@@ -144,6 +145,7 @@ const Cservices = () => {
                   update={update}
                 />
               ))}
+              </Row>
             </div>
           </div>
           <div className="d-flex justify-content-between align-items-center mb-4">

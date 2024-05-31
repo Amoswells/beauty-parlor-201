@@ -9,18 +9,19 @@ const User = ({ client }) => {
 
   return (
     <Col>
-      <Card className=" ">
-        <Card.Body className="d-flex  flex-column">
+      <>
+        <div className="pl-3">
           <Stack>
-            <div className="">
+              <p>Name: {name}</p>
+            <p>ID:
             {id}
-            </div>
-            <Card.Title>Name: {name}</Card.Title>
+            </p>
+          
           </Stack>
 
          
-        </Card.Body>
-      </Card>
+        </div>
+      </>
     </Col>
   );
 };
