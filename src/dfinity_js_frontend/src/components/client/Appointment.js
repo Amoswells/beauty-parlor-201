@@ -25,15 +25,16 @@ const Appointment = ({ appointmentInfo, update }) => {
             </span>
             <span className="text-blue-700 flex space-x-3">
               Service Name:
-              <p className="text-black">{time}</p>
+              <p className="text-black">{serviceName}</p>
             </span>
-            <span className="text-blue-700 flex space-x-3">
-              Professional Name:
-              <p className="text-black">{professionalName}</p>
-            </span>
+          
             <span className="text-blue-700 flex space-x-3">
               Time:
-              <p className="text-black">{serviceName}</p>
+              <p className="text-black">{time}</p>
+            </span>
+              <span className="text-blue-700 flex space-x-3">
+              Professional Name:
+              <p className="text-black">{professionalName}</p>
             </span>
           </>
           <UpdateAppointment update={triggerUpdate} />

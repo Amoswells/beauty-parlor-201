@@ -88,7 +88,7 @@ const AppointmentInfo = Record({
   clientName: text,
   clientPhoneNumber: text,
   serviceName: text,
-  ProfessionalName: text,
+  professionalName: text,
   time: text,
 });
 
@@ -250,7 +250,7 @@ export default Canister({
         serviceName: service.name,
         clientName: client.name,
         clientPhoneNumber: client.phoneNumber,
-        ProfessionalName: professional.name,
+        professionalName: professional.name,
       };
 
       client.appointments.push(appointment.appointmentId);
